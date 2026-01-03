@@ -1,64 +1,52 @@
-# RHCSA (EX200) Practice Repository - RHEL 10
+# RHCSA (EX200) Practice Repository – RHEL 10
 
-Hands-on RHCSA exam preparation, VM labs, and on-the-job Linux administration reference.
+This repository provides **hands-on, exam-aligned practice labs** for the  
+**Red Hat Certified System Administrator (RHCSA) – EX200** exam, targeting **RHEL 10**.
 
-This repository provides a practical, exam-aligned study framework for the
-Red Hat Certified System Administrator (RHCSA - EX200) exam, updated for RHEL 10.
+It is designed for:
+- Exam preparation
+- Skill refresh for working system administrators
+- Professional portfolio demonstration
 
----
-
-## Repository Purpose
-
-This project is intended to:
-
-- Provide hands-on practice aligned to official EX200 objectives
-- Support VM-based, exam-style lab work
-- Reinforce persistence, validation, and correctness
-- Serve as a practical Linux administration reference
+All content is **outcome-focused**, **persistent**, and **reboot-tested**, mirroring real exam conditions.
 
 ---
 
-## Official Exam Reference
+## What This Repository Is
 
-- Exam: RHCSA (EX200)
-- Operating System: Red Hat Enterprise Linux 10
-- Exam format: Performance-based, hands-on
-- Official objectives:
-  https://www.redhat.com/en/services/training/ex200-red-hat-certified-system-administrator-exam
+- A **complete RHCSA practice environment**
+- A **self-contained lab workbook**
+- A **professional GitHub portfolio project**
+- A **real-world Linux administration reference**
 
-IMPORTANT:
-Red Hat exams award credit only for correct and persistent results.
-Non-persistent or partially correct configurations do not score.
+This repo intentionally avoids shortcuts, GUIs, and unsupported tools.
 
 ---
 
-## Scope of This Repository
+## What This Repository Is NOT
 
-Covered topics include:
+- ❌ Exam dumps
+- ❌ Red Hat proprietary content
+- ❌ NDA-protected material
+- ❌ Automated “one-command” solutions
 
-- Essential Linux commands
-- User and group management
-- Permissions and ownership
-- Storage management (LVM, XFS)
-- Networking using nmcli
-- System services and boot targets
-- Firewall configuration using firewalld
-- SELinux (enforcing mode, contexts)
-- Bash scripting fundamentals
-- Containers using Podman (EX200 scope)
-
-Intentionally out of scope:
-
-- Kubernetes
-- Advanced container image builds
-- CI/CD pipelines
+Everything here is **original**, **educational**, and **NDA-safe**.
 
 ---
 
-## Repository Layout
+## Target Exam
+
+- **Certification:** Red Hat Certified System Administrator (RHCSA)
+- **Exam Code:** EX200
+- **OS Target:** RHEL 10 (or compatible rebuilds)
+- **Exam Style:** Performance-based, hands-on
+
+---
+
+## Repository Structure
 
 ```
-.
+rhcsa-ex200/
 ├── README.md
 ├── workbook/
 │   └── rhcsa_workbook.md
@@ -72,9 +60,10 @@ Intentionally out of scope:
 │   ├── lab07-scripting/
 │   └── lab08-containers/
 ├── scripts/
-│   └── examples/
+│   ├── examples/
+│   └── autograde/
 ├── checklists/
-│   └── auto-grading.md
+│   └── manual-validation.md
 └── vm-lab/
     ├── build.md
     └── reset.md
@@ -82,108 +71,135 @@ Intentionally out of scope:
 
 ---
 
-## VM Lab Environment
+## Lab Coverage (Mapped to EX200 Objectives)
 
-Recommended setup:
+| Lab | Topic |
+|----|----|
+| Lab 01 | Users, Groups, Sudo |
+| Lab 02 | Storage & LVM |
+| Lab 03 | Networking (nmcli) |
+| Lab 04 | Services & Firewall |
+| Lab 05 | SELinux |
+| Lab 06 | Archiving & Compression |
+| Lab 07 | Bash Scripting |
+| Lab 08 | Containers (Podman) |
 
-- Hypervisor: KVM, VMware, VirtualBox, or Proxmox
-- OS: RHEL 10 or compatible rebuild
-- VM count: 1 (exam-style) or 2 (client/server practice)
-- Resources:
-  - 2 vCPU
-  - 4 GB RAM
-  - 30 to 40 GB disk
-
-Root or sudo access is required.
-
----
-
-## Exam-Style Lab Workflow
-
-1. Snapshot or reset the VM
-2. Read the lab objective only
-3. Perform tasks without notes
-4. Reboot the system
-5. Validate all results
-6. Self-grade using the checklist
-
-Rule:
-If it does not survive reboot, it does not count.
+Each lab includes:
+- Scenario-based tasks
+- Validation commands
+- Common failure patterns
+- Reset instructions
 
 ---
 
-## Containers (EX200 Reminder)
+## VM Requirements
 
-RHCSA tests basic Podman usage only:
+- RHEL 10 or compatible rebuild (Rocky / Alma)
+- Minimal or Server install (no GUI)
+- 2 vCPU, 4 GB RAM (minimum)
+- 30–40 GB disk
+- firewalld and SELinux enabled
 
-- Running containers
-- Inspecting containers
-- Port mapping
-- Volume mounts with SELinux
-- Persisting containers using systemd
-
-Kubernetes and orchestration platforms are not tested.
-
----
-
-## DISCLAIMER AND EXAM INTEGRITY NOTICE
-
-THIS REPOSITORY IS PROVIDED FOR EDUCATIONAL AND PROFESSIONAL DEVELOPMENT PURPOSES ONLY.
-
-- This project DOES NOT contain real Red Hat exam questions, answers, screenshots,
-  or any material obtained from live certification exams.
-- All labs, scenarios, scripts, and examples are ORIGINAL and based solely on
-  publicly available RHCSA (EX200) exam objectives.
-- This repository DOES NOT violate Red Hat Non-Disclosure Agreements (NDA),
-  exam policies, or certification agreements.
-- Users are solely responsible for complying with all Red Hat certification
-  terms, conditions, and ethical guidelines.
-
-Red Hat, RHCSA, and RHEL are trademarks of Red Hat, Inc.
-This repository is NOT affiliated with, sponsored by, or endorsed by Red Hat.
-
-DO NOT contribute exam-confidential, NDA-protected, or proprietary material
-to this repository.
+See:
+```
+vm-lab/build.md
+vm-lab/reset.md
+```
 
 ---
 
-## Study Guidance
+## How to Use This Repository
 
-Recommended study order:
+### Recommended Workflow
 
-1. Review the workbook
-2. Practice core administration labs
-3. Practice services, SELinux, and firewall tasks
-4. Practice bash scripting
-5. Practice containers
-6. Perform a timed mock exam
-
-Exam strategy reminders:
-
-- Validate after every task
-- Do not disable SELinux
-- Use supported tools only
-- Assume systems reboot during grading
+1. Build VM using `vm-lab/build.md`
+2. Take a clean snapshot
+3. Complete labs **in order**
+4. Reboot after each lab
+5. Manually validate outcomes
+6. Run auto-grading scripts
+7. Repeat until consistent
 
 ---
 
-## Contributions
+## Auto-Grading
 
-Contributions are welcome if they:
+Read-only auto-grading scripts are provided to assist self-assessment.
 
-- Stay within EX200 scope
-- Use supported RHEL tools
-- Improve clarity or accuracy
-- Do not include exam-confidential material
+Run all graders:
+```
+sudo ./scripts/autograde/grade_all.sh
+```
 
-Open a pull request with a clear description of changes.
+Important:
+- Scripts **do not modify the system**
+- Manual validation always takes priority
+- Passing the grader is not the same as passing the exam
+
+See:
+```
+scripts/autograde/README.md
+checklists/manual-validation.md
+```
 
 ---
 
-## Final Advice
+## Exam Mindset (Critical)
 
-Red Hat exams grade outcomes, not effort.
+Red Hat exams grade:
+- Correct outcomes
+- Persistence after reboot
+- SELinux compliance
+- Minimal changes
+- No unnecessary services
 
-Make it work.
-Make it persistent.
-Validate everything.
+This repository enforces those habits.
+
+---
+
+## Professional Use
+
+This repository is suitable for:
+- GitHub portfolio
+- Resume reference
+- Interview discussion
+- On-the-job refresh
+
+It demonstrates:
+- Linux fundamentals
+- Security awareness
+- Troubleshooting discipline
+- Infrastructure reliability
+
+---
+
+## Disclaimer
+
+This project is an **independent educational resource**.
+
+It is **not affiliated with, endorsed by, or sponsored by Red Hat, Inc.**
+
+Red Hat®, RHCSA®, and EX200® are trademarks of Red Hat, Inc.
+
+No proprietary or confidential exam materials are used.
+
+---
+
+## License
+
+This repository is intended for **educational and professional use**.  
+See `LICENSE` for details.
+
+---
+
+## Next Steps
+
+- Complete a **timed mock exam**
+- Review the **day-of-exam cram sheet**
+- Extend labs for **RHCE (EX294)** follow-on practice
+
+---
+
+**Practice clean.  
+Validate everything.  
+Reboot often.**
