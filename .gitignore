@@ -1,8 +1,91 @@
+# ===============================
+# OS / Editor Artifacts
+# ===============================
+.DS_Store
+Thumbs.db
 *.swp
-*.log
+*.swo
 *.bak
 *.tmp
-.DS_Store
+*.log
 .vscode/
 .idea/
+*.code-workspace
 
+# ===============================
+# Shell / Script Artifacts
+# ===============================
+*.out
+*.err
+*.pid
+nohup.out
+
+# ===============================
+# VM / Hypervisor Artifacts
+# (Do NOT commit VM images)
+# ===============================
+*.qcow2
+*.vmdk
+*.vdi
+*.iso
+*.ova
+*.ovf
+*.img
+*.raw
+
+# ===============================
+# Terraform / IaC (if added later)
+# ===============================
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+
+# ===============================
+# Ansible (future-safe)
+# ===============================
+*.retry
+ansible.log
+
+# ===============================
+# Container / Podman Artifacts
+# ===============================
+podman-images/
+container-data/
+containers/
+*.tar
+*.tar.gz
+*.tar.bz2
+
+# ===============================
+# Exam / Lab Runtime Artifacts
+# ===============================
+/backupdata/
+/restore/
+/examdata/
+/data/
+/webdata/
+/container-data/
+
+# ===============================
+# Auto-Grading Output
+# ===============================
+autograde-report.txt
+autograde-results/
+.gradecache/
+
+# ===============================
+# Temporary Notes (Local Only)
+# ===============================
+notes-local.md
+todo-local.md
+scratch.md
+
+# ===============================
+# Safety
+# ===============================
+*.pem
+*.key
+*.crt
+.env
+.env.*
